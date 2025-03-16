@@ -1,5 +1,1 @@
-arr = []
-for _ in range(int(input())):
-    arr.append(int(input()))
-
-[print(i) for i in (sorted(arr))]
+[print(i) for i in (sorted([int(input()) for _ in range(int(input()))]))]
