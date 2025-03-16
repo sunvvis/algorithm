@@ -1,8 +1,9 @@
-arr = []
-for _ in range(int(input())):
-    arr.append(input())
+import sys
 
-arr = list(set(arr))
-arr.sort()
-arr.sort(key=len)
-[print(i) for i in arr]
+N =int(input())
+arr=[]
+for i in range(N):
+    arr.append(sys.stdin.readline())
+arr=list(set(arr))
+arr.sort(key=lambda x:(len(x),x))
+[print(i.strip()) for i in arr]
