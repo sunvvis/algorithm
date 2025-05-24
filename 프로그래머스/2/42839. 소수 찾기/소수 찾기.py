@@ -1,14 +1,18 @@
 from itertools import permutations
 
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
 def solution(numbers):
-    answer = list(map(int, numbers))
-    for i in range(len(numbers)):
-        for p in permutations(answer, i+1):
-            print(p)
-    # for i in answer:
-    #     # print(i)
-    #     a = ""
-    #     for j in i:
-    #         a += str(j)
-        # print(a)
-    # return answer
+    nums = set()
+    for i in range(1, len(numbers)+1):
+        for p in permutations(list(numbers), i):
+            nums.add(int(''.join(p)))
+    
+    answer = sum(1 for i in nums if is_prime(i))
+    return answer
